@@ -1,0 +1,11 @@
+D:\Proyectos\MasGlobal\Employees\Employees\bin\Debug\Employees.dll.config
+D:\Proyectos\MasGlobal\Employees\Employees\bin\Debug\Employees.dll
+D:\Proyectos\MasGlobal\Employees\Employees\bin\Debug\Employees.pdb
+D:\Proyectos\MasGlobal\Employees\Employees\bin\Debug\Newtonsoft.Json.dll
+D:\Proyectos\MasGlobal\Employees\Employees\bin\Debug\Newtonsoft.Json.pdb
+D:\Proyectos\MasGlobal\Employees\Employees\bin\Debug\Newtonsoft.Json.xml
+D:\Proyectos\MasGlobal\Employees\Employees\obj\Debug\Employees.csproj.CoreCompileInputs.cache
+D:\Proyectos\MasGlobal\Employees\Employees\obj\Debug\Employees.csproj.CopyComplete
+D:\Proyectos\MasGlobal\Employees\Employees\obj\Debug\Employees.dll
+D:\Proyectos\MasGlobal\Employees\Employees\obj\Debug\Employees.pdb
+D:\Proyectos\MasGlobal\Employees\Employees\obj\Debug\Employees.csprojAssemblyReference.cache

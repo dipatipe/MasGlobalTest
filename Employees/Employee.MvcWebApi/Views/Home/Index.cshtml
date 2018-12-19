@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Employees</h2>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/mustache.js"></script>
+<input type="text" name="id" id="txtId" value="" />
+<input type="button" name="buscar" id="btnSearch" value="Get Employees" />
+
+<script id="employeeSummaryTemplate" type="text/html">
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Contract Type</th>
+            <th>RoleId</th>
+            <th>Role Name</th>
+            <th>Role Description</th>
+            <th>Hourly Salary</th>
+            <th>Monthly Salary</th>
+            <th>Anual Salary</th>
+        </tr>
+        {{#empSummary}}
+        <tr id="tr{{Id}}">
+            <td>{{Id}}</td>
+            <td>{{Name}}</td>
+            <td>{{ContractTypeName}}</td>
+            <td>{{Roleid}}</td>
+            <td>{{RoleName}}</td>
+            <td>{{RoleDescription}}</td>
+            <td>$ {{HourlySalary}}</td>
+            <td>$ {{MonthlySalary}}</td>
+            <td>$ {{AnualSalary}}</td>
+        </tr>
+        {{/empSummary}}
+    </table>
+</script>
+<div id="Employees">
+</div>
+<script>
+    $(document).ready(function () {
+
+        
+        $("#btnSearch").click(function () {
+
+            if ($('#txtId').val() == "") {
+
+
+                $.getJSON("/api/Employee", function (data) {
+
+                    var html = Mustache.to_html($("#employeeSummaryTemplate").html(), { empSummary: data });
+                    $("#Employees").html(html);
+
+                })
+
+            }
+            else {
+
+                $.getJSON("/api/Employee/"+ $('#txtId').val() , function (data) {
+
+                    if (data == null)
+                        alert("This code does not exists! please write another one.")
+                    var html = Mustache.to_html($("#employeeSummaryTemplate").html(), { empSummary: data });
+                    $("#Employees").html(html);
+
+                })
+            }
+           
+
+
+        })
+
+
+    })
+
+</script>
