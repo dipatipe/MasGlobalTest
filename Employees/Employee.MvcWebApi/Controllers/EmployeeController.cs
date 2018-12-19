@@ -9,23 +9,31 @@ namespace Employee.MvcWebApi.Controllers
 {
     public class EmployeeController : ApiController
     {
+       
+        /// <summary>
+        /// Get all employees
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public List<Employees.Employee> GetEmployees()
+        public List<Employees.EmployeeDTO> GetEmployees()
         {
 
-            Employees.Employee objEmployee = new Employees.Employee();
-            List<Employees.Employee> lstEmployees = objEmployee.GetEmployees();
+            Employees.EmployeeHourly objEmployee = new Employees.EmployeeHourly();
+            List<Employees.EmployeeDTO> lstEmployees = objEmployee.GetEmployees();
             return lstEmployees;
         }
-
+        /// <summary>
+        /// Get employee by ID
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         [HttpGet]
-        public Employees.Employee GetEmployeebyID(int Id)
+        public Employees.EmployeeDTO GetEmployeebyID(int Id)
         {
-            Employees.Employee objEmployee = new Employees.Employee();
-            Employees.Employee objEmployeebyID = objEmployee.getEmployeebyID(Id).FirstOrDefault();
-            return objEmployeebyID;
+            Employees.EmployeeHourly objEmployee = new Employees.EmployeeHourly();
+            Employees.EmployeeDTO objEmployeeDTO = objEmployee.getEmployeebyID(Id);
+            return objEmployeeDTO;
         }
-
 
 
 

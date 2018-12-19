@@ -46,9 +46,19 @@
         
         $("#btnSearch").click(function () {
 
+            if ($.isNumeric($('#txtId').val()) == false && $('#txtId').val() != "")
+            {
+                alert("Please enter a number");
+                return;
+            }
+            if ($('#txtId').val().length > 9) {
+                alert("This code is too big, please correct the information.");
+                return;
+            }
+
             if ($('#txtId').val() == "") {
 
-
+                //Call method to load all employees
                 $.getJSON("/api/Employee", function (data) {
 
                     var html = Mustache.to_html($("#employeeSummaryTemplate").html(), { empSummary: data });
@@ -58,11 +68,14 @@
 
             }
             else {
-
+                //Call method to load employee by id
                 $.getJSON("/api/Employee/"+ $('#txtId').val() , function (data) {
-
-                    if (data == null)
-                        alert("This code does not exists! please write another one.")
+                    
+                    if (data == null) 
+                        alert("This code does not exists! please write another one.");
+                        
+                    
+                        
                     var html = Mustache.to_html($("#employeeSummaryTemplate").html(), { empSummary: data });
                     $("#Employees").html(html);
 

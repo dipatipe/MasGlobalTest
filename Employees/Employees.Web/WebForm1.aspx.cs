@@ -20,23 +20,23 @@ namespace Employees.Web
 
         protected void btnGetEmployee_Click(object sender, EventArgs e)
         {
-            Employee objEmployee = new Employee();
+            //Employees objEmployee = new Employee();
 
-            int result=0;
-            if (int.TryParse(txtID.Text, out result) == false)
-                Response.Write("Please insert a number!");
+            //int result=0;
+            //if (int.TryParse(txtID.Text, out result) == false)
+            //    Response.Write("Please insert a number!");
 
-            if (txtID.Text=="")
-            {
+            //if (txtID.Text=="")
+            //{
                 
-                gvEmployee.DataSource = objEmployee.GetEmployees();
-                gvEmployee.DataBind();
-            }
-            else
-            {
-                gvEmployee.DataSource = objEmployee.getEmployeebyID(Convert.ToInt32(txtID.Text));
-                gvEmployee.DataBind();
-            }
+            //    gvEmployee.DataSource = objEmployee.GetEmployees();
+            //    gvEmployee.DataBind();
+            //}
+            //else
+            //{
+            //    gvEmployee.DataSource = objEmployee.getEmployeebyID(Convert.ToInt32(txtID.Text));
+            //    gvEmployee.DataBind();
+            //}
         }
     }
 }
